@@ -21,7 +21,7 @@ d3.json("unemployment.json", function(data) {
         .data(collection.features)
       .enter().append("path")
         .attr("d", d3.geo.path())
-        .attr("class", function(d) { return color(data[d.id]); });
+        .style("fill", function(d) { return color(data[d.id]); });
   });
 });
 
