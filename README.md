@@ -1,0 +1,1 @@
+D3 2.10 adds support for threshold scales which make it easy to apply arbitrary quantization.
