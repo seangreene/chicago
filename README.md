@@ -1,4 +1,4 @@
-[Threshold scales](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-threshold) support arbitrary quantization, mapping arbitrary slices of a continuous domain to discrete values in the range. In this example, unemployment rates for counties are quantized into different shades of blue.
+This [choropleth](../4060606) uses a [threshold scale](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-threshold) for quantization, mapping arbitrary slices of a continuous domain to discrete values in the range. Unemployment rates ranging from 2 to 10% are quantized into different shades of purple.
 
 ```javascript
 var color = d3.scale.threshold()
