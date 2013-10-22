@@ -8,6 +8,11 @@ input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit
 table{border-collapse:collapse;border-spacing:0}.states{fill:none;stroke:#fff;stroke-linejoin:round}
 
 /* Custom styles */
+body {
+	width: 960px;
+	margin: 0 auto;
+}
+
 .states {
     fill: none;
     stroke: #fff;

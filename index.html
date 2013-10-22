@@ -1,30 +1,32 @@
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
-        <title>Gun Traced back to Chicago over the last ten years</title>
+        <title>Guns traced back to Chicago over the last ten years</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <script src="js/min.js"></script>
     </head>
 
     <body>
+        <h1>Tracing the guns in Chicago's Gun Crimes</h1>
+        <div id="map"></div>
         <script>
 
             var width = 960,
                 height = 500;
 
             var color = d3.scale.threshold()
-                .domain([0, 5, 100, 500, 1000, 5000])
-                .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
+                .domain([1, 10, 25, 100, 1000, 10000])
+                .range(["#FEE5D9", "#FCBBA1", "#FC9272", "#FB6A4A", "#DE2D26", "#A50F15"]);
 
             var path = d3.geo.path();
 
-            var svg = d3.select("body").append("svg")
+            var svg = d3.select("#map").append("svg")
                 .attr("width", width)
                 .attr("height", height);
 
             queue()
                 .defer(d3.json, "js/us.json")
-                .defer(d3.csv, "assets/guns-history3.csv")
+                .defer(d3.csv, "assets/data.csv")
                 .await(ready);
 
             function ready(error, us, guns) {
@@ -47,4 +49,16 @@
 
             } // end ready
         </script>
+        <div class="answers">
+            <p><strong>Where are Chicago's guns coming from?</strong></p>
+            <p>All over, but mostly the guns come from Chicago's own Cook County, Ill.</p>
+            <p><strong>If this data stretches 10 years, is it necessary to include all the data points that include only one gun? It seems insignificant within the scope of this map.</strong></p>
+            <p>We decided not to.</p>
+            <p><strong>Where is it editorially sound to break this data up to form separate maps?</strong></p>
+            <p>This question should have read: How do we know where to place the map breaks that form the buckets? Depending on where the data is broken, the chloropeth map looks different. There must be a statistical way to break the data.</p>
+            <p><strong>Is the number of gun crimes related to distance from Chicago?</strong></p>
+            <p>(And what would be the best way of representing that? Maybe the guns originated in Florida, then went to Texas before they ended up in Chicago as an example.) In a way, yes, the vast majority of guns used in crimes in the city came from somewhere in Cook County.</p>
+            <p><strong>Compare the 15,000 number of guns from Cook County to the total from the rest of the country. What does that tell us?</strong></p>
+            <p>A third of all guns used to commit crimes in Chicago came from Cook County. Cook County guns = 15,781. Rest of the country = 31,562.</p>
+        </div>
     </body>
