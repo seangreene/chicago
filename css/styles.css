@@ -69,3 +69,9 @@ ul.legend-labels li span {
 a {
 	color: #777;
 }
+
+a:-webkit-any-link {
+color: -webkit-link;
+text-decoration: none;
+cursor: auto;
+}
