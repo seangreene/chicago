@@ -8,6 +8,21 @@
 
     <body>
         <h1>Tracing the guns in Chicago's Gun Crimes</h1>
+        <div class='my-legend'>
+            <div class='legend-title'>Amount of guns traced</div>
+            <div class='legend-scale'>
+                <ul class='legend-labels'>
+                    <li><span style='background:#FEE5D9;'></span>0</li>
+                    <li><span style='background:#FCBBA1;'></span>1-10</li>
+                    <li><span style='background:#FC9272;'></span>10-25</li>
+                    <li><span style='background:#FB6A4A;'></span>25-100</li>
+                    <li><span style='background:#DE2D26;'></span>100-1000</li>
+                    <li><span style='background:#A50F15;'></span>1000-10,000</li>
+                    <li><span style='background:#67000D;'></span>> 10,000</li>
+                </ul>
+            </div>
+            <div class='legend-source'>Source: <a href="http://graphics8.nytimes.com/newsgraphics/2013/01/26/chicago-guns-map/b3d41fc896ad9a786c8a37b11a3caf561477db79/guns-history3.csv">Chicago Police Department</a></div>
+        </div>
         <div id="map"></div>
         <script>
 
@@ -16,13 +31,15 @@
 
             var color = d3.scale.threshold()
                 .domain([1, 10, 25, 100, 1000, 10000])
-                .range(["#FEE5D9", "#FCBBA1", "#FC9272", "#FB6A4A", "#DE2D26", "#A50F15"]);
+                .range(["#FEE5D9", "#FCBBA1", "#FC9272", "#FB6A4A", "#DE2D26", "#A50F15", "#67000D"]);
 
             var path = d3.geo.path();
 
             var svg = d3.select("#map").append("svg")
                 .attr("width", width)
                 .attr("height", height);
+
+
 
             queue()
                 .defer(d3.json, "js/us.json")

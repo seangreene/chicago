@@ -18,3 +18,41 @@ body {
     stroke: #fff;
     stroke-linejoin: round;
 }
+
+.legend-title {
+	text-align: left;
+	margin-bottom: 8px;
+	font-weight: bold;
+	font-size: 90%;
+}
+.legend-scale ul {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	width: 500px;
+}
+.legend-scale ul li {
+	display: block;
+	float: left;
+	width: 70px;
+	margin-bottom: 6px;
+	text-align: center;
+	font-size: 80%;
+	list-style: none;
+}
+ul.legend-labels li span {
+	display: block;
+	float: left;
+	height: 15px;
+	width: 70px;
+}
+.legend-source {
+	font-size: 70%;
+	color: #999;
+	clear: both;
+}
+
+a {
+	color: #777;
+}
