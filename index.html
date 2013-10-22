@@ -19,7 +19,7 @@ var width = 960,
     height = 500;
 
 var color = d3.scale.threshold()
-    .domain([.02, .04, .06, .08, .10])
+    .domain([0, 5, 100, 500, 1000, 5000])
     .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
 
 var path = d3.geo.path();
@@ -29,14 +29,14 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 queue()
-    .defer(d3.json, "/mbostock/raw/4090846/us.json")
-    .defer(d3.tsv, "unemployment.tsv")
+    .defer(d3.json, "js/us.json")
+    .defer(d3.csv, "assets/guns-history3.csv")
     .await(ready);
 
-function ready(error, us, unemployment) {
+function ready(error, us, guns) {
   var rateById = {};
 
-  unemployment.forEach(function(d) { rateById[d.id] = +d.rate; });
+  guns.forEach(function(d) { rateById[d.FIPS] = +d.count3; });
 
   svg.append("g")
       .attr("class", "counties")
