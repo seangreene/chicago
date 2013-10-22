@@ -1,0 +1,17 @@
+2*2
+r(3, 2, 4)
+help.r
+help(r)
+??r
+demo(graphics)
+clear
+demo(graphics)
+setwd('~/dataviz-fall-2013/chicago/')
+read.delim('assets/guns-history3.csv')
+data <- read.delim('assets/guns-history3.csv')
+data(head)
+head(data)
+max(data$count3)
+max(data$st.county.STATE.composite.fipstxt.FIPS.count3)
+data <- read.csv('assets/guns-history3.csv')
+head(data)
